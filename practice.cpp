@@ -1,33 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void solve(vector<vector<int>>& ans,vector<int>& op,vector<int>& c,int target,int index,int sum){
-        if(index==c.size()){
-            if(sum==target){
-                sort(op.begin(),op.end());
-                ans.push_back(op);
-                return;
-            }
-            return;
-        }
-        sum+=c[index];
-        op.push_back(c[index]);
-        solve(ans,op,c,target,index+1,sum);
-        op.pop_back();
-        sum-=c[index];
-        solve(ans,op,c,target,index+1,sum);
-    }
-
-vector<vector<int>> combinationSum2(vector<int>& c, int target) {
-        vector<vector<int>> ans;
-        vector<int> op;
-        solve(ans,op,c,target,0,0);
-        //set<vector<int>> a(ans.begin(),ans.end());
-        //vector<vector<int>> a2(a.begin(),a.end());
-        return ans;
+int recursion(int n,vector<int>& dp){
+    if(n<=1) return n;
+    if(dp[n]!=-1) return dp[n];
+    return dp[n]=recursion(n-1,dp)+recursion(n-2,dp);
 }
-
-int main(){
-    
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout<<fixed<<setprecision(2);
+    int n;
+    cin>>n;
+    vector<int> dp(n+1,-1);
+    cout<<recursion(n,dp);
     return 0;
 }
