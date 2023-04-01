@@ -299,7 +299,7 @@ int main()
             cout<<"\tEnter the category of item you want to buy:\n";
             cout<<"\t\t 1. Electronics\n";
             cout<<"\t\t 2. Home decor\n";
-            cout<<"\t\t 3. Electronics\n";
+            cout<<"\t\t 3. pet\n";
             cout<<"\t\t 4. Kitchen items\n";
             cout<<"\t\t 5. Vehicles\n";
             cout<<"\t\t 6. other items\n";
